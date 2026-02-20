@@ -172,7 +172,7 @@ def stratified_split(dataset, seed=42, train_ratio=0.70, val_ratio=0.15):
 
 def create_loaders(data_dir, train_idx, val_idx, test_idx,
                    train_transform, val_transform,
-                   batch_size=64, num_workers=2):
+                   batch_size=64, num_workers=0):
     """
     Create train/val/test DataLoaders using pre-computed index splits.
 
@@ -204,7 +204,7 @@ def create_loaders(data_dir, train_idx, val_idx, test_idx,
     return train_loader, val_loader, test_loader
 
 
-def load_cifar100(batch_size=64, num_workers=2):
+def load_cifar100(batch_size=64, num_workers=0):
     """
     Download and load CIFAR-100 with appropriate transforms.
 
