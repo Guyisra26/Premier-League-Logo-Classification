@@ -61,6 +61,16 @@ def get_resnet_transforms():
     return train_transform, val_transform
 
 
+def get_cnn_transforms_no_aug():
+    """Return (train_transform, val_transform) without data augmentation for ablation."""
+    plain_transform = transforms.Compose([
+        transforms.Resize((IMG_SIZE_CNN, IMG_SIZE_CNN)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD),
+    ])
+    return plain_transform, plain_transform
+
+
 def get_cifar100_transforms():
     """Return (train_transform, val_transform) for CIFAR-100 upscaled to 128x128."""
     train_transform = transforms.Compose([
